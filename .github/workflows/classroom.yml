@@ -13,6 +13,15 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+    - name: Ran `env`
+      id: ran-env
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Ran `env`
+        setup-command: ''
+        command: grep "HOME=/root" *.html
+        timeout: 10
+        max-score: 1
     - name: Looked for number of "Steak Burrito" orders
       id: looked-for-number-of-steak-burrito-orders
       uses: classroom-resources/autograding-command-grader@v1
@@ -57,4 +66,4 @@ jobs:
         RAN-LS-L_RESULTS: "${{steps.ran-ls-l.outputs.result}}"
         ASSIGNED-ABC-123_RESULTS: "${{steps.assigned-abc-123.outputs.result}}"
       with:
-        runners: ran-env,looked-for-number-of-steak-burrito-orders,ran-ls-l,assigned-abc-123
+        runners: ran-env,looked-for-number-of-steak-burrito-orders,ran-ls-l,assigned-abc-123,ran-env
