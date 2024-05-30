@@ -19,7 +19,7 @@ jobs:
       with:
         test-name: Looked for number of "Steak Burrito" orders
         setup-command: ''
-        command: grep '^368$' *.html
+        command: grep -e '^368$' *.html
         timeout: 10
         max-score: 1
     - name: Ran `ls -l`
@@ -28,7 +28,7 @@ jobs:
       with:
         test-name: Ran `ls -l`
         setup-command: ''
-        command: grep 'ls -l$' *.html
+        command: grep -e 'ls -l$' *.html
         timeout: 10
         max-score: 1
     - name: Assigned abc=123
