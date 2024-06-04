@@ -74,7 +74,7 @@ jobs:
       with:
         test-name: 'Debugging puzzle 4: File exons.fixed.bed no longer causes a bedtools
           merge error'
-        setup-command: ''
+        setup-command: sudo apt-get install bedtools
         command: bedtools merge -i exons.fixed.bed
         timeout: 2
         max-score: 1
