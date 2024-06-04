@@ -67,6 +67,17 @@ jobs:
         command: grep "sort chromosomes.txt -V &gt; chromosomes.sorted.txt"
         timeout: 2
         max-score: 1
+    - name: 'Debugging puzzle 4: File exons.fixed.bed no longer causes a bedtools
+        merge error'
+      id: debugging-puzzle-4-file-exons-fixed-bed-no-longer-causes-a-bedtools-merge-error
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: 'Debugging puzzle 4: File exons.fixed.bed no longer causes a bedtools
+          merge error'
+        setup-command: ''
+        command: bedtools merge -i exons.fixed.bed
+        timeout: 2
+        max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
@@ -76,5 +87,6 @@ jobs:
         RAN-ENV_RESULTS: "${{steps.ran-env.outputs.result}}"
         DEBUGGING-PUZZLE-1_RESULTS: "${{steps.debugging-puzzle-1.outputs.result}}"
         DEBUGGING-PUZZLE-2_RESULTS: "${{steps.debugging-puzzle-2.outputs.result}}"
+        DEBUGGING-PUZZLE-4-FILE-EXONS-FIXED-BED-NO-LONGER-CAUSES-A-BEDTOOLS-MERGE-ERROR_RESULTS: "${{steps.debugging-puzzle-4-file-exons-fixed-bed-no-longer-causes-a-bedtools-merge-error.outputs.result}}"
       with:
-        runners: looked-for-number-of-steak-burrito-orders,ran-ls-l,assigned-abc-123,ran-env,debugging-puzzle-1,debugging-puzzle-2
+        runners: looked-for-number-of-steak-burrito-orders,ran-ls-l,assigned-abc-123,ran-env,debugging-puzzle-1,debugging-puzzle-2,debugging-puzzle-4-file-exons-fixed-bed-no-longer-causes-a-bedtools-merge-error
